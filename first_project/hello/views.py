@@ -1,10 +1,17 @@
-from django.shortcuts import render
-# Se importa HttpResponse
 from django.http import HttpResponse
+from django.shortcuts import render
 
 # Create your views here.
 def index(request):
-    return HttpResponse("Hola desde mi primera vista 🎹")
+    return render(request, "hello/index.html")
 
-def index(request):
-    return HttpResponse("Autor: Brenda Montaño")
+def author(request):
+    return HttpResponse("Hello Author 👨‍🎤")
+
+def greet(request, name):
+    return HttpResponse(f"Hello, {name}!!!")
+
+def greet(request, name):
+    return render(request, "hello/greet.html", {
+        "name": name.capitilize()
+    })
